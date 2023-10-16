@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchButton = document.getElementById("searchButton");
 
     searchButton.addEventListener("click", function () {
-        getPokemonData();
+        fetchPokemonData();
     });
 
-    function getPokemonData() {
-        const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
-        const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+    function fetchPokemonData() {
+        const enteredPokemonName = document.getElementById("pokemonName").value.toLowerCase();
+        const apiUrl = `https://pokeapi.co/api/v2/pokemon/${enteredPokemonName}`;
 
         fetch(apiUrl)
             .then((response) => {
@@ -17,23 +17,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.json();
             })
             .then((data) => {
-                const pokemonInfo = document.getElementById("pokemonInfo");
-                const pokemonNameSpan = document.getElementById("pokemonNameSpan");
-                const pokemonImage = document.getElementById("pokemonImage");
-                const abilitiesList = document.getElementById("abilitiesList");
+                const pokemonInfoContainer = document.getElementById("pokemonInfo");
+                const pokemonNameElement = document.getElementById("pokemonNameSpan");
+                const pokemonImageElement = document.getElementById("pokemonImage");
+                const abilitiesListElement = document.getElementById("abilitiesList");
 
-                pokemonNameSpan.textContent = data.name;
-                pokemonImage.src = data.sprites.front_default;
+                pokemonNameElement.textContent = data.name;
+                pokemonImageElement.src = data.sprites.front_default;
 
-                abilitiesList.innerHTML = "";
+                abilitiesListElement.innerHTML = "";
 
                 data.abilities.forEach((ability) => {
-                    const li = document.createElement("li");
-                    li.textContent = ability.ability.name;
-                    abilitiesList.appendChild(li);
+                    const abilityListItem = document.createElement("li");
+                    abilityListItem.textContent = ability.ability.name;
+                    abilitiesListElement.appendChild(abilityListItem);
                 });
 
-                pokemonInfo.style.display = "block";
+                pokemonInfoContainer.style.display = "block";
             })
             .catch((error) => {
                 console.error("Error: ", error);
