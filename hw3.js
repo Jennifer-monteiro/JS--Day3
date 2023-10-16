@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 pokemonNameSpan.textContent = data.name;
                 pokemonImage.src = data.sprites.front_default;
 
-                abilitiesList.innerHTML = ""; // Clear previous abilities
+                abilitiesList.innerHTML = "";
 
                 data.abilities.forEach((ability) => {
                     const li = document.createElement("li");
