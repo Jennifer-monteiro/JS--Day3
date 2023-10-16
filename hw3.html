@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('poke.jpg'); /* Replace 'poke.jpg' with the actual path to your image */
+            background-size: 100% auto; /* Make the image wider while maintaining its height */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center; /* Center the image both horizontally and vertically */
+            height: 100vh; /* Set the height of the background image */
+        }
+        .card-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .list-group {
+            list-style: none; /* Remove list-style (bullets) */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 card-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="text-center">Pokedex</h1>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="form-group">
+                            <input type="text" id="pokemonName" class="form-control" placeholder="Enter a Pokemon name">
+                        </div>
+                        <button id="searchButton" class="btn btn-primary btn-block">Search Pokemon</button>
+                        <div id="pokemonInfo" style="display: none;">
+                            <h2 class="text-center">Name: <span id="pokemonNameSpan"></span></h2>
+                            <img id="pokemonImage" src="" alt="Pokemon" class="img-fluid mx-auto">
+                            <h3 class="text-center">Abilities:</h3>
+                            <ul id="abilitiesList" class="list-group"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="hw3.js"></script>
+</body>
+</html>
